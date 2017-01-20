@@ -1,0 +1,50 @@
+parameters:
+
+
+application:
+    errorPresenter: Error
+    mapping:
+        *: NeEET\*Module\Presenters\*Presenter
+
+http:
+    csp:
+        script-src: nonce
+        frame-ancestors: none
+        form-action: none
+        style-src: [self, unsafe-inline]
+    headers:
+        X-XXS-Protection: '1; mode=block'
+        X-Content-Type-Options: nosniff
+
+session:
+	expiration: 14 days
+
+extensions:
+    console: Kdyby\Console\DI\ConsoleExtension
+    events: Kdyby\Events\DI\EventsExtension
+    annotations: Kdyby\Annotations\DI\AnnotationsExtension
+    doctrine: Kdyby\Doctrine\DI\OrmExtension
+    migrations: Zenify\DoctrineMigrations\DI\MigrationsExtension
+    - Arachne\ContainerAdapter\DI\ContainerAdapterExtension
+    - Arachne\EventDispatcher\DI\EventDispatcherExtension
+    - Zenify\DoctrineBehaviors\DI\TimestampableExtension
+
+services:
+    router: NeEET\RouterFactory()::create()
+
+    - NeEET\FIK\FikRequestHandler
+    - NeEET\FIK\ResponseFormatterFactory
+
+doctrine:
+    host: %database.host%
+    user: %database.user%
+    password: %database.password%
+    dbname: %database.dbname%
+    metadata:
+        NeEET: %appDir%
+
+migrations:
+    table: doctrine_migrations
+    directory: %appDir%/../migrations
+    namespace: Migrations
+    codingStandard: tabs

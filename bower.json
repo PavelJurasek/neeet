@@ -1,0 +1,24 @@
+{
+  "name": "neeet",
+  "homepage": "",
+  "authors": [],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "nette-forms": "^2.4.3",
+    "nette.ajax.js": "^2.2.0"
+  },
+  "resolutions": {
+    "nette-forms": "^2.4.3"
+  }
+}

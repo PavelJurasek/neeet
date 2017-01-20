@@ -1,0 +1,56 @@
+{**
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{ifset title}{include title|stripHtml} | {/ifset}NeEET</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{$basePath}/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{$basePath}/css/style.css">
+	{block head}{/block}
+</head>
+
+<body>
+	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{plink :App:Front:Homepage:}">Ne-EET</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="{plink :App:Front:Homepage:}#">Domů</a></li>
+					<li><a href="{plink :App:Front:Homepage:}#api">API</a></li>
+					<li><a href="{plink :App:Front:Homepage:}#about">O projektu</a></li>
+					<li><a href="{plink :App:Front:Homepage:}#contact">Kontakt</a></li>
+					<li><a href="{plink :App:Front:Homepage:}#privacy">Soukromí</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</nav>
+
+	<div class="container">
+	{include content}
+	</div>
+
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">{date('Y')} &middot; <a href="http://www.etrzby.cz/cs/technicka-specifikace" rel="noreferrer,nonoopener">Technická specifikace EET</a></p>
+		</div>
+	</footer>
+
+	{block scripts}
+	{/block}
+</body>
+</html>

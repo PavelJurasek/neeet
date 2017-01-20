@@ -1,0 +1,102 @@
+{block content}
+
+<div id="home">
+	<div class="page-header">
+		<h1>Ne tak docela EET</h1>
+	</div>
+	<p class="lead">Vygeneruj si svůj FIK kód.</p>
+</div>
+
+<div id="api">
+	<h2>API</h2>
+
+	<p class="lead">API endpoint nalezneš na adrese <a n:href="//:App:Api:Homepage:, format => 'json'">{plink //:App:Api:Homepage:, format => 'json'}</a>.</p>
+
+	<p>Odpovědí je "FIK" kód ve tvaru <code>UUIDv4-[00-fe]</code>. Splňuje tak formát opravdového FIK kódu.</p>
+
+	<h3>Podporované formáty</h3>
+
+	<h4>JSON</h4>
+
+	<dl>
+		<dt>Endpoint</dt>
+		<dd><a n:href="//:App:Api:Homepage:, format => 'json'">{plink //:App:Api:Homepage:, format => 'json'}</a></dd>
+
+		<dt>Odpověď</dt>
+		<dd><pre>{"fik":"e483d005-7780-4147-85a5-5badc393e6f3-c8"}</pre></dd>
+	</dl>
+
+	<h4>Raw</h4>
+
+	<dl>
+		<dt>Endpoint</dt>
+		<dd><a n:href="//:App:Api:Homepage:">{plink //:App:Api:Homepage:}</a></dd>
+
+		<dt>Odpověď</dt>
+		<dd><pre>6c3d9481-498d-4b51-9df0-c7ed6dee90e8-33</pre></dd>
+	</dl>
+
+	<h4>XML</h4>
+
+	<dl>
+		<dt>Endpoint</dt>
+		<dd><a n:href="//:App:Api:Homepage:, format => 'xml'">{plink //:App:Api:Homepage:, format => 'xml'}</a></dd>
+
+		<dt>Odpověď</dt>
+		<dd>
+			<pre>
+&lt;response&gt;
+	&lt;fik&gt;d70e0c77-48be-418a-8574-0365b2026ff3-17&lt;/fik&gt;
+&lt;/response&gt;</pre>
+		</dd>
+	</dl>
+
+	<h3>TODO</h3>
+
+	<ul>
+		<li>Query parametr pro umožnění vygenerování kódu s koncovkou <code>ff</code> pro testovací prostředí.</li>
+		<li>Query parametr pro vynucení vygenerování kódu s koncovkou <code>ff</code> pro testovací prostředí.</li>
+	</ul>
+</div>
+
+<div id="about">
+	<h2>O projektu</h2>
+
+	<p>Věděl jsi, že i přesto, že za první měsíc fungování EET bylo vygenerováno přes 120 milionů účtenek, tak FIK kódy vyčerpáme asi za <strong>9,38 * 10<sup>29</sup></strong> let?</p>
+
+	<p>Díky tomuto projektu to může být třeba o týden dříve.</p>
+</div>
+
+<div id="contact">
+	<h2>Kontakt</h2>
+
+	<p>Můžeš mi napsat na <a href="mailto:neeet@paveljurasek.cz">neeet@paveljurasek.cz</a>.</p>
+</div>
+
+<div id="license">
+	<h2>Licence</h2>
+
+	<p>Tato stránka je pod svobodnou licencí a její kód je dostupný na adrese <a href="https://github.com/PavelJurasek/neeet" rel="noreferrer,nonoopener">https://github.com/PavelJurasek/neeet</a>.</p>
+</div>
+
+<div id="privacy">
+	<h2>Soukromí</h2>
+
+	<p>Pro účely statistik loguji tyto údaje:</p>
+	<ul>
+		<li>User agent (prohlížeč)</li>
+		<li><code>Accept</code> hlavičku</li>
+		<li><code>Accept-Encoding</code> hlavičku</li>
+		<li><code>Accept-Language</code> hlavičku</li>
+	</ul>
+</div>
+
+<div id="disclaimer">
+	<h2>Varování</h2>
+
+	<p>Toto API nijak nenahrazuje oficiální API Ministerstva Financí pro EET. Obdržený FIK kód není nijak spjat s žádnou tržbou.</p>
+	<p>Jako provozovatel nenesu zodpovědnost za použití zde vygenerovaných FIK kódů na reálných účtenkách.</p>
+</div>
+
+
+{/block}
